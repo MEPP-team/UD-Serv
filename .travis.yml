@@ -3,12 +3,14 @@ dist: bionic
 language: python
 python:
   - "3.6"
-services:
-  - postgresql
+
+#services:
+#  - postgresql
 
 install:
-  - cd API_Enhanced_City
-  - export PYTHONPATH=$PYTHONPATH:.
+  - pwd
+#  - cd API_Enhanced_City
+#  - export PYTHONPATH=$PYTHONPATH:.
 #  - pip install -r requirements.txt
 
 #before_script:
