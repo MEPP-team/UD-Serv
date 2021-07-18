@@ -9,12 +9,12 @@ services:
 install:
   - cd API_Enhanced_City
   - export PYTHONPATH=$PYTHONPATH:.
-  - pip install -r requirements.txt
+#  - pip install -r requirements.txt
 
-before_script:
-  - psql -c 'create database extendeddoc;' -U postgres
-  - psql -c '\l' -U postgres
-
+#before_script:
+#  - psql -c 'create database extendeddoc;' -U postgres
+#  - psql -c '\l' -U postgres
+#
 #jobs:
 #  include:
 #    - stage: Tests
