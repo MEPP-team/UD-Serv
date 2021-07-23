@@ -66,7 +66,7 @@ sudo composer update
 ````
 It will update the project's dependencies and should ask you informations on the database to connect the project to the database :
 
-![](apiInstall1.png)
+![](./img/api/apiInstall1.png)
 
 - Configure the Database: 
 
@@ -105,11 +105,11 @@ Open your navigator and run:
 
 You should have:
 
-![](DBtable.png)
+![](./img/api/DBtable.png)
 
 If you want to use another type of database instead of postgreSQL you will need to change the driver used by the project in the file /app/config/config.yml : 
 
-![](apiInstall2.png)
+![](./img/api/apiInstall2.png)
 
 Don't forget to install/enable the required driver.
 
