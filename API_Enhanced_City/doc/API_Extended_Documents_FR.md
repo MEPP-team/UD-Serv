@@ -10,7 +10,7 @@ Une table possède des attributs / champs qui représentent les données. Chaque
 
 Dans le modèle d’origine, un document possède une table de métadonnée et une table de visualisation. La relations entre la table document et la table de visualisation ainsi que celle de métadonnée est une relation « OneToOne », c’est-à-dire qu’un document possède une table de visualisation, un document possède une table de métadonnées.
 
-![Class diagram for the Extended Document API](./Pictures/ClassDiagramAPIExtendedDocument.png)
+![Class diagram for the Extended Document API](./img/api/ClassDiagramAPIExtendedDocument.png)
 
 L’API Extended Document est un projet Symfony. Les projets Symfony ont une structure basée sur le design pattern MVC (Modèle, Vue, Contrôleur). Le modèle est la partie qui définit les données, dans Symfony un modèle est composé d’entité, chaque entité est décrite par une classe PHP. Ici, chaque entité représentera une table en base de données. 
 
@@ -129,7 +129,7 @@ Ouvrez votre navigateur et lancez l'url suivante:
 
 Vous devriez avoir:
 
-![](DBtable.png)
+![](./img/api/DBtable.png)
 
 - Autorisations:
 
@@ -153,36 +153,36 @@ Ce contrôleur est associé à un fichier de routage qui va permettre de savoir 
 Par exemple si j’entre l’url /getDocument/1 que va faire le serveur ?
 L’image ci-dessous indique que lors de la réception d’une requête de la forme /getDocument/{idDocument} il va faire appel à la méthode getDocument du controlleur.
 
-![](./Pictures/api1bis.png)
+![](./img/api/api1bis.png)
 
 Le paramètre idDocument sera transmis à la methode du controlleur.
 
 Note : lors de l’ajout d’une méthode dans le controlleur, le mot clé « Action » doit être ajouté à la fin du nom de la méthode.
 
-![](./Pictures/api2bis.png)
+![](./img/api/api2bis.png)
 
 # Modifier le modèle de donnée :
 ## Rajouter une table (entité) : 
 1. Se placer dans le répertoire du projet avec un invite de commande.
 
-![](./Pictures/api3.png)
+![](./img/api/api3.png)
 
 2. Exécuter la commande 
 ````
 php bin/console doctrine:generate:entity
 ````
 
-![](./Pictures/api4.png)
+![](./img/api/api4.png)
 
 3. Entrer le nom de l’entité de la manière suivante : {Nom Projet}{Nom Bundle} :{Nom Entité}
 
 Par exemple : ExtendedDocumentAPIBundle:maTable (ExtendedDocument est le nom du projet et APIBundle le bundle dans lequel se trouvent les entités).
 
-![](./Pictures/api5.png)
+![](./img/api/api5.png)
 
 4. Choisissez « annotation » comme format de mapping. (Entrée sans saisie permet de valider le choix par défaut qui ici est « annotation »).
 
-![](./Pictures/api6.png)
+![](./img/api/api6.png)
 
 5. Ajouter des champs. Entrée sans saisie mettra fin à l’ajout de champs. Il sera possible plus tard d’ajouter, modifier et supprimer des champs
 
@@ -194,27 +194,27 @@ c. Saisir si le champ peut être vide ou non (true = peut être vide).
 
 d. Saisir si le champ doit être unique ou non (true = doit être unique).
 
-![](./Pictures/api7.png)
+![](./img/api/api7.png)
 
 Note : il n’est pas nécessaire d’ajouter un champ « id » à la classe car il sera ajouté tout seul par l’ORM.
 
 6. A la fin de l’ajout de champ, si tout ce passe bien vous avez quelque chose ressemblant à ça :
 
-![](./Pictures/api8.png)
+![](./img/api/api8.png)
 
 ## Ajouter / modifier des champs :
 
 1. Se placer dans la classe de l’entité à modifier : APIExtendedDocument/src/ExtendedDocument/APIBundle/Entity/{Entité à modifier}
 
-![](./Pictures/api9bis.png)
+![](./img/api/api9bis.png)
  
 2. Rajouter la variable correspondant au champ à ajouter : (une variable en php s’écrit avec un $ devant le nom de la variable. On ne type pas nos variables en php. On se doit de rajouter le mot clé private ici pour définit le niveau d’accès à la variable car elle se trouve dans une classe php.)  
 
-![](./Pictures/api10.png)
+![](./img/api/api10.png)
 
 3. Rajouter les annotations pour définir la variable au niveau de la base de données. Les annotations vont permettre à l’ORM (Object-Relational Mapping) de savoir comment faire le lien entre les entité php et les tables en base de données.
 
-![](./Pictures/api11.png)
+![](./img/api/api11.png)
 
 Types disponibles : 
 https://www.doctrine-project.org/projects/doctrine-dbal/en/2.7/reference/types.html
@@ -228,13 +228,13 @@ b. Exécuter la commande afin de générer l’entité modifiée :
 php bin/console doctrine:generate:entities {Projet}{Bundle}:{Entité}
 ````
 
-![](./Pictures/api12bis.png)
+![](./img/api/api12bis.png)
 
 Note : Cette commande permet d’ajouter dans l’entité les méthodes afin d’accéder aux variables que l’on à définit précédemment. Cependant, elle ne supprime pas les méthodes des champs que l’on a supprimé, il faudra le faire manuellement.
 
 Exemple de méthode d’accès et de modification générée dans Metadata : 
 
-![](./Pictures/api12.png)
+![](./img/api/api12.png)
 
 Mettre à jour les migrations :
 
@@ -286,7 +286,7 @@ targetEntity : nom de l’entité cible de l’association.
 
 mappedBy : nom de la colonne primaire de l’entité cible.
 
-![](./Pictures/api13.png)
+![](./img/api/api13.png)
 
 Dans la classe Document : 
 
@@ -298,13 +298,13 @@ invesedBy : la variable qui va contiendra le document dans l’entité Visualiz
 
 Note : « fetch =  « EAGER » » permet de récupérer les entités en cascade.
 
-![](./Pictures/api14.png)
+![](./img/api/api14.png)
 
 ## Implémentation de l’interface JsonSerializable :
 
 Afin de renvoyer les données sous le format Json, il est nécessaire pour chaque entité d’implémenter l’interface JsonSerializable.
 
-![](./Pictures/api15.png)
+![](./img/api/api15.png)
 
 Il faudra ensuite implémenter la méthode jsonSerialize(). 
 
