@@ -129,7 +129,7 @@ Ouvrez votre navigateur et lancez l'url suivante:
 
 Vous devriez avoir:
 
-![](./Pictures/DBtable.png)
+![](DBtable.png)
 
 - Autorisations:
 
