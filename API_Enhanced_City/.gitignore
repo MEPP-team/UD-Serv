@@ -1,7 +1,0 @@
-.env
-upload
-.pytest_cache
-.idea
-venv
-postgres-data
-__pycache__
