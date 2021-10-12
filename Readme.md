@@ -6,20 +6,6 @@ Note: for the client-side components [refer to UD-Viz](https://github.com/VCityT
 
 ## Available tools
 
-### API_Enhanced_City
-The goal of the 
-[API **Enhanced City**](https://github.com/MEPP-team/UD-Serv/blob/master/API_Enhanced_City) 
-is to handle, and serve through [web services](https://en.wikipedia.org/wiki/Web_service), 
-various types of city related data in the context of 
-[UD-SV (Urban Data Services and Vizualisation)](https://github.com/VCityTeam/UD-SV). 
-
-The API currently offers [web service](https://en.wikipedia.org/wiki/Web_service) 
-access to few following types of resources :
-- Documents (file and metadata)
-- Guided tours (sequences of documents with additional texts)
-- Links between documents and other (city) objects
-- User accounts and rights
-
 ### City 3DTiles tilers
 3DTiles, as
 [described by Cesium](https://github.com/CesiumGS/3d-tiles), 
