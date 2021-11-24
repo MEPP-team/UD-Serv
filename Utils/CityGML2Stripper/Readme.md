@@ -14,3 +14,7 @@ $ . venv/bin/activate
 ```bash
 (venv)$ python CityGML2Stripper.py --input filename_1.gml --output output.gml
 ```
+* Optionally the `--remove-building-parts` flag can be added to move all BuildingPart content by copying it to its parent Building:
+```bash
+(venv)$ python CityGML2Stripper.py --input filename_1.gml --output output.gml --remove-building-parts
+```
