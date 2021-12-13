@@ -1,5 +1,6 @@
 .idea
 .env
+.vscode
 venv
 ExtractCityData/db_config.yml
 UDV_server.egg-info
